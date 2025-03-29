@@ -6,6 +6,8 @@ A 4x4 Tic-Tac-Toe game built with React and Vite. This is a variant of the class
 
 This project provides a simple 4x4 Tic-Tac-Toe implementation using React and Vite with HMR and ESLint rules.
 
+Now play Tic-Tac-Toe without paper-pen on a larger 4x4 grid!
+
 ## Features
 
 - 4x4 game board
@@ -37,3 +39,5 @@ npm run dev
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules.
+
+
