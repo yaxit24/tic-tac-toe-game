@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  let [board, setBoard] = useState(Array(9).fill(''))
+  let [board, setBoard] = useState(Array(16).fill(''))
   let [xTurn, setXTurn] = useState(true)
   let [gameEnded, setGameEnded] = useState(false)
   let [statusMsg, setStatusMsg] = useState("X's turn")
@@ -34,7 +34,7 @@ function App() {
   }
 
   function newGame() {
-    setBoard(Array(9).fill(''));
+    setBoard(Array(16).fill(''));
     setXTurn(true);
     setGameEnded(false);
     setStatusMsg("X's turn");
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="game-container">
-      <h1>Tic Tac Toe</h1>
+      <h1>4x4 Tic Tac Toe</h1>
       <div className="status">{statusMsg}</div>
       
       <div className="game-board">
@@ -64,19 +64,29 @@ function App() {
 
 function findWinner(squares) {
   const winPatterns = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
+    // Rows
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11],
+    [12, 13, 14, 15],
+    
+    // Columns
+    [0, 4, 8, 12],
+    [1, 5, 9, 13],
+    [2, 6, 10, 14],
+    [3, 7, 11, 15],
+    
+    // Diagonals
+    [0, 5, 10, 15],
+    [3, 6, 9, 12]
   ]
 
   for (let i = 0; i < winPatterns.length; i++) {
-    const [a, b, c] = winPatterns[i]
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+    const [a, b, c, d] = winPatterns[i]
+    if (squares[a] && 
+        squares[a] === squares[b] && 
+        squares[a] === squares[c] &&
+        squares[a] === squares[d]) {
       return squares[a]
     }
   }
